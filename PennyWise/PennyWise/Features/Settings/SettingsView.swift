@@ -80,17 +80,23 @@ struct SettingsView: View {
                 }
                 
                 Section {
-                    Link(destination: URL(string: "https://example.com/privacy")!) {
+                    Link(destination: URL(string: "https://pennywise-privacy-vert.vercel.app")!) {
                         Label("Privacy Policy", systemImage: "hand.raised")
                     }
                     
-                    Link(destination: URL(string: "https://example.com/terms")!) {
-                        Label("Terms of Service", systemImage: "doc.text")
+                    Link(destination: URL(string: "https://pennywise-support.vercel.app")!) {
+                        Label("Help & Support", systemImage: "questionmark.circle")
                     }
                     
-                    Link(destination: URL(string: "mailto:support@pennywise.app")!) {
-                        Label("Contact Support", systemImage: "envelope")
+                    NavigationLink {
+                        ContactSupportView()
+                    } label: {
+                        Label("Contact Us", systemImage: "envelope.badge.shield.half.filled")
                     }
+                } header: {
+                    Text("Support & Legal")
+                } footer: {
+                    Text("Visit our Help Center for FAQs, or contact us directly for assistance.")
                 }
             }
             .navigationTitle("Settings")
